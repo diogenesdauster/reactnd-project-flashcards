@@ -1,10 +1,14 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
-import { View, Text, TouchableOpacity, StyleSheet, Alert } from "react-native";
-import { getDeck } from "../utils/api";
+import {
+  View,
+  Text,
+  TouchableOpacity,
+  StyleSheet,
+  Alert,
+  Button
+} from "react-native";
 import { lightblue3, gray, white, black } from "../utils/colors";
-import { connect } from "react-redux";
-import { receiveDeck } from "../actions";
 
 class DeckDetail extends Component {
   static propTypes = {
@@ -15,7 +19,26 @@ class DeckDetail extends Component {
           title: PropTypes.string.isRequired
         }).isRequired
       }).isRequired
-    }).isRequired
+    }).isRequired,
+    deck: PropTypes.shape({
+      title: PropTypes.string.isRequired,
+      questions: PropTypes.array.isRequired
+    }).isRequired,
+    getDeckByTitle: PropTypes.func.isRequired
+  };
+
+  static navigationOptions = ({ navigation }) => {
+    return {
+      headerLeft: (
+        <Button
+          onPress={() => {
+            navigation.popToTop();
+          }}
+          color={white}
+          title="Home"
+        />
+      )
+    };
   };
 
   state = {
@@ -23,12 +46,10 @@ class DeckDetail extends Component {
   };
 
   componentDidMount() {
-    const { dispatch, navigation } = this.props;
+    const { getDeckByTitle, navigation } = this.props;
     const { title } = navigation.state.params;
 
-    getDeck(title)
-      .then(deck => dispatch(receiveDeck(deck)))
-      .then(() => this.setState({ ready: true }));
+    getDeckByTitle(title, () => this.setState({ ready: true }));
   }
 
   _handleAddNewCard = () => {
@@ -77,14 +98,7 @@ class DeckDetail extends Component {
   }
 }
 
-const mapStateToProps = (state, ownProps) => {
-  const { navigation } = ownProps;
-  return {
-    deck: state[navigation.state.params.title]
-  };
-};
-
-export default connect(mapStateToProps)(DeckDetail);
+export default DeckDetail;
 
 const styles = StyleSheet.create({
   container: {

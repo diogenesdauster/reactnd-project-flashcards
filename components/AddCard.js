@@ -10,9 +10,6 @@ import {
   KeyboardAvoidingView
 } from "react-native";
 import { gray, lightblue3, white } from "../utils/colors";
-import { addCardToDeck } from "../utils/api";
-import { connect } from "react-redux";
-import { addCard } from "../actions";
 
 class AddCard extends Component {
   static propTypes = {
@@ -23,7 +20,8 @@ class AddCard extends Component {
           title: PropTypes.string.isRequired
         }).isRequired
       }).isRequired
-    }).isRequired
+    }).isRequired,
+    addNewCard: PropTypes.func.isRequired
   };
 
   state = {
@@ -41,10 +39,10 @@ class AddCard extends Component {
     } else if (this.state.card.answer === "") {
       Alert.alert("No Answer", "Please write a Answer for adding a new Card!!");
     } else {
-      const { navigation, dispatch } = this.props;
+      const { navigation, addNewCard } = this.props;
       const { card } = this.state;
-      addCardToDeck(navigation.state.params.title, card);
-      dispatch(addCard(navigation.state.params.title, card));
+
+      addNewCard(navigation.state.params.title, card);
 
       this.setState({
         card: {
@@ -95,7 +93,7 @@ class AddCard extends Component {
   }
 }
 
-export default connect()(AddCard);
+export default AddCard;
 
 const styles = StyleSheet.create({
   container: {

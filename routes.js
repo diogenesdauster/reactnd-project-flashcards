@@ -1,10 +1,12 @@
 import { createStackNavigator } from "react-navigation";
 import DeckList from "./components/DeckList";
-import CreateDeck from "./components/CreateDeck";
 import DeckDetail from "./components/DeckDetail";
 import Quiz from "./components/Quiz";
-import AddCard from "./components/AddCard";
 import { white, lightblue2 } from "./utils/colors";
+import ContainerAddCard from "./containers/ContainerAddCard";
+import ContainerCreateDeck from "./containers/ContainerCreateDeck";
+import ContainerDeckDetail from "./containers/ContainerDeckDetail";
+import ContainerDeckList from "./containers/ContainerDeckList";
 
 const StackNavigatorHeaderStyle = {
   backgroundColor: lightblue2
@@ -12,7 +14,7 @@ const StackNavigatorHeaderStyle = {
 
 export const StackNavigation = createStackNavigator({
   Home: {
-    screen: DeckList,
+    screen: ContainerDeckList,
     navigationOptions: {
       title: "FlashCards",
       headerStyle: StackNavigatorHeaderStyle,
@@ -21,7 +23,7 @@ export const StackNavigation = createStackNavigator({
     }
   },
   CreateDeck: {
-    screen: CreateDeck,
+    screen: ContainerCreateDeck,
     navigationOptions: {
       title: "New Deck",
       headerTintColor: white,
@@ -30,7 +32,7 @@ export const StackNavigation = createStackNavigator({
     }
   },
   DeckDetail: {
-    screen: DeckDetail,
+    screen: ContainerDeckDetail,
     navigationOptions: {
       title: "Deck Detail",
       headerTintColor: white,
@@ -39,7 +41,7 @@ export const StackNavigation = createStackNavigator({
     }
   },
   AddCard: {
-    screen: AddCard,
+    screen: ContainerAddCard,
     navigationOptions: {
       title: "Add card",
       headerTintColor: white,

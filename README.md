@@ -29,9 +29,11 @@ To get started developing right away:
 
 #### 3. Start the app with "npm start"
 
-To begin the App and run the application:
+- To begin the App and run the application:
 
 `$ npm start` or `$ yarn start`
+
+- Open the Android or iOS simulator and follow expo instructions: "Press a to open Android device or emulator, or i to open iOS emulator."
 
 #### 4. App look Like
 
@@ -47,6 +49,8 @@ To begin the App and run the application:
 - [Redux](https://redux.js.org/)
 - [Expo](https://expo.io/)
 - [reselect](https://github.com/reduxjs/reselect)
+
+##IMPORTANT The project was tested mainly at the IOS Emulator, but it is working for both platforms.
 
 ### Udacity Resources:
 

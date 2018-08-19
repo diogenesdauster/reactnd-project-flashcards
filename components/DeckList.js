@@ -11,19 +11,28 @@ import {
 import { lightblue3, white } from "../utils/colors";
 import Deck from "./Deck";
 import Ionicons from "@expo/vector-icons/Ionicons";
-import { getDecks } from "../utils/api";
-import { connect } from "react-redux";
-import { receiveDecks } from "../actions";
-import { createSelector } from "reselect";
+import PropTypes from "prop-types";
+import { clearLocalNotification, setLocalNotification } from "../utils/helpers";
 
 class DeckList extends PureComponent {
+  static propTypes = {
+    decks: PropTypes.arrayOf(
+      PropTypes.shape({
+        title: PropTypes.string.isRequired,
+        questions: PropTypes.array.isRequired
+      }).isRequired
+    ),
+    getAllDecks: PropTypes.func.isRequired,
+    navigation: PropTypes.shape({
+      navigate: PropTypes.func.isRequired
+    })
+  };
   state = { ready: false };
 
   componentDidMount() {
-    const { dispatch } = this.props;
-    getDecks()
-      .then(decks => dispatch(receiveDecks(decks)))
-      .then(() => this.setState({ ready: true }));
+    const { getAllDecks } = this.props;
+    clearLocalNotification().then(setLocalNotification);
+    getAllDecks(() => this.setState({ ready: true }));
   }
 
   _onPress = () => {
@@ -108,23 +117,4 @@ const styles = StyleSheet.create({
   }
 });
 
-const getKeysOfStorage = state => Object.keys(state);
-const getDecksOfStorage = state => state;
-
-const makeDecks = createSelector(
-  getKeysOfStorage,
-  getDecksOfStorage,
-  (keys, decks) =>
-    keys.reduce((acc, item) => {
-      acc.push(decks[item]);
-      return acc;
-    }, [])
-);
-
-const mapStateToProps = state => {
-  return {
-    decks: makeDecks(state)
-  };
-};
-
-export default connect(mapStateToProps)(DeckList);
+export default DeckList;

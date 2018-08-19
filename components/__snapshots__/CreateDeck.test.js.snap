@@ -1,0 +1,86 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders CreateDeck correctly 1`] = `
+<View
+  enabled={true}
+  keyboardVerticalOffset={0}
+  onLayout={[Function]}
+  style={
+    Object {
+      "flex": 1,
+      "margin": 20,
+    }
+  }
+>
+  <TextInput
+    allowFontScaling={true}
+    onChangeText={[Function]}
+    placeholder="Enter the title for your deck"
+    style={
+      Object {
+        "borderBottomWidth": 1,
+        "height": 37,
+        "padding": 10,
+      }
+    }
+    value=""
+  />
+  <Text
+    accessible={true}
+    allowFontScaling={true}
+    ellipsizeMode="tail"
+    style={
+      Object {
+        "color": "#757575",
+        "fontSize": 20,
+        "paddingTop": 5,
+      }
+    }
+  >
+    Title
+  </Text>
+  <View
+    accessibilityComponentType={undefined}
+    accessibilityLabel={undefined}
+    accessibilityTraits={undefined}
+    accessible={true}
+    collapsable={undefined}
+    hasTVPreferredFocus={undefined}
+    hitSlop={undefined}
+    isTVSelectable={true}
+    nativeID={undefined}
+    onLayout={undefined}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Object {
+        "alignSelf": "flex-end",
+        "opacity": 1,
+        "width": 100,
+      }
+    }
+    testID={undefined}
+    tvParallaxProperties={undefined}
+  >
+    <Text
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Object {
+          "backgroundColor": "#00BCD4",
+          "color": "#FFFFFF",
+          "padding": 10,
+          "textAlign": "center",
+        }
+      }
+    >
+      Save
+    </Text>
+  </View>
+</View>
+`;

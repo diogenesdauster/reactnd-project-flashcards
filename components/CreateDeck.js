@@ -10,28 +10,25 @@ import {
   KeyboardAvoidingView
 } from "react-native";
 import { gray, lightblue3, white } from "../utils/colors";
-import { saveDeckTitle } from "../utils/api";
-import { connect } from "react-redux";
-import { saveDeck } from "../actions";
 
 class CreateDeck extends Component {
   static propTypes = {
     navigation: PropTypes.shape({ navigate: PropTypes.func.isRequired })
-      .isRequired
+      .isRequired,
+    createNewDeck: PropTypes.func.isRequired
   };
 
   state = {
     title: ""
   };
   _handleSubmitNewDeck = () => {
-    const { dispatch } = this.props;
+    const { createNewDeck, navigation } = this.props;
     const { title } = this.state;
 
     if (title) {
-      saveDeckTitle(title);
-      dispatch(saveDeck(title));
+      createNewDeck(title);
       this.setState({ title: "" });
-      this.props.navigation.goBack();
+      navigation.navigate("DeckDetail", { title }, null, { key: "Home" });
     } else {
       Alert.alert("No Title", "Please write a title for adding a new Deck!!");
     }
@@ -58,7 +55,7 @@ class CreateDeck extends Component {
   }
 }
 
-export default connect()(CreateDeck);
+export default CreateDeck;
 
 const styles = StyleSheet.create({
   container: {
