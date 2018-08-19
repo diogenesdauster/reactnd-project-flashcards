@@ -35,7 +35,7 @@ To begin the App and run the application:
 
 #### 4. App look Like
 
-![app](https://github.com/disias/reactnd-project-flashcards/master/screenshots/app.gif)
+![app](https://github.com/disias/reactnd-project-flashcards/blob/master/screenshots/app.gif)
 
 ### Resources and Documentation:
 
