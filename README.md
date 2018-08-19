@@ -20,12 +20,7 @@ To clone and run this application, you will need Git installed on your computer.
 
 To get started developing right away:
 
-- Install and start the API server
-  - `$ cd api-server`
-  - `$ npm install` or `$ yarn install`
-- In another terminal window start front-end
-  - `$ cd frontend`
-  - `$ npm install` or `$ yarn install`
+- `$ npm install` or `$ yarn install`
 
 #### 3. Start the app with "npm start"
 
