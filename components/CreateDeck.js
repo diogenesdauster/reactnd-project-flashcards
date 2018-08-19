@@ -25,7 +25,7 @@ class CreateDeck extends Component {
     const { createNewDeck, navigation } = this.props;
     const { title } = this.state;
 
-    if (title) {
+    if (title.trim() !== "") {
       createNewDeck(title);
       this.setState({ title: "" });
       navigation.navigate("DeckDetail", { title }, null, { key: "Home" });

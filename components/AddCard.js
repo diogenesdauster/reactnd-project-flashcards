@@ -31,12 +31,12 @@ class AddCard extends Component {
     }
   };
   _handleSubmitNewCard = () => {
-    if (!this.state.card.question === "") {
+    if (!this.state.card.question.trim() === "") {
       Alert.alert(
         "No Question",
         "Please write a Question for adding a new Card!!"
       );
-    } else if (this.state.card.answer === "") {
+    } else if (this.state.card.answer.trim() === "") {
       Alert.alert("No Answer", "Please write a Answer for adding a new Card!!");
     } else {
       const { navigation, addNewCard } = this.props;
