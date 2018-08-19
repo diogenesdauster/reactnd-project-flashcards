@@ -32,11 +32,9 @@ To get started developing right away:
 
 #### 4. App look Like
 
-<img src="https://github.com/disias/reactnd-project-flashcards/blob/master/screenshots/app.gif" width="250"  height="250"> 
-<img src="https://github.com/disias/reactnd-project-flashcards/blob/master/screenshots/app2.gif" width="250" height="250">
+| <img src="https://github.com/disias/reactnd-project-flashcards/blob/master/screenshots/app.gif" width="250"  height="350"> | <img src="https://github.com/disias/reactnd-project-flashcards/blob/master/screenshots/app2.gif" width="250" height="350"> |
+| :------------------------------------------------------------------------------------------------------------------------: | :------------------------------------------------------------------------------------------------------------------------: |
 
-![app](https://github.com/disias/reactnd-project-flashcards/blob/master/screenshots/app.gif)
-![app2](https://github.com/disias/reactnd-project-flashcards/blob/master/screenshots/app2.gif)
 
 ### Resources and Documentation:
 
