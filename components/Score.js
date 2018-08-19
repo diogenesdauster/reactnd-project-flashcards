@@ -37,7 +37,8 @@ class Score extends Component {
     this.state.scoreAnimeted.removeAllListeners();
   }
   render() {
-    const { score, startAgain, goBackToDeck } = this.props;
+    const { startAgain, goBackToDeck } = this.props;
+    const { score } = this.state;
     return (
       <View style={styles.container}>
         <Text style={{ fontSize: 32 }}>Your score is:</Text>
