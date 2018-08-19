@@ -45,6 +45,7 @@ To begin the App and run the application:
 - [React Navigation Documentation](https://reactnavigation.org/)
 - [React API](https://facebook.github.io/react/docs/react-api.html)
 - [Redux](https://redux.js.org/)
+- [Expo](https://expo.io/)
 - [reselect](https://github.com/reduxjs/reselect)
 
 ### Udacity Resources:
